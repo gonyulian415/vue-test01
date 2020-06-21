@@ -3,7 +3,9 @@
     <span id="msg">{{ message }}</span>
     <button @click="updateMessage">去更新</button>
     <button @click="sendPost">axios获取数据</button>
-    <button @click="sendCOReq">跨域获取数据</button>
+    <button @click="sendCOReq">跨域获取数据iphone</button>
+    <button @click="sendCOReq2">跨域获取数据boogie board</button>
+    <button @click="sendCOReq3">跨域获取数据牛奶</button>
   </div>
 </template>
 
@@ -28,7 +30,17 @@ export default {
       });
     },
     sendCOReq() {
-      this.$axios.get("/api").then(res => {
+      this.$axios.get("/useclient?skuIds=J_100008348542&type=1").then(res => {
+        console.log(res);
+      });
+    },
+    sendCOReq2() {
+      this.$axios.get("/useclient?skuIds=J_7531255&type=1").then(res => {
+        console.log(res);
+      });
+    },
+    sendCOReq3() {
+      this.$axios.get("/useclient2?skuIds=J_11826442690&type=1").then(res => {
         console.log(res);
       });
     }

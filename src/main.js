@@ -7,6 +7,7 @@ require("./mock.js");
 import axios from "axios";
 import _ from "lodash";
 import qs from "qs";
+import "./plugins/element.js";
 
 Vue.config.productionTip = false;
 //axios.defaults.baseURL = "http://mockjs.com/api"; // 设置默认请求的url

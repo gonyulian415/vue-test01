@@ -8,12 +8,20 @@ module.exports = {
     //以上的ip和端口是我们本机的;下面为需要跨域的
     proxy: {
       //配置跨域
-      "/api": {
-        target: "https://p.3.cn/prices/mgets?skuIds=J_100008348542&type=1", //这里后台的地址模拟的;应该填写你们真实的后台接口
+      "/useclient": {
+        target: "https://p.3.cn/prices/mgets", //这里后台的地址模拟的;应该填写你们真实的后台接口
         ws: true,
         changOrigin: true, //允许跨域
         pathRewrite: {
-          "^/api": "", //请求的时候使用这个api就可以
+          "^/useclient": "", //请求的时候使用这个useclient就可以
+        },
+      },
+      "/useclient2": {
+        target: "https://p.3.cn/prices/mgets", //这里后台的地址模拟的;应该填写你们真实的后台接口
+        ws: true,
+        changOrigin: true, //允许跨域
+        pathRewrite: {
+          "^/useclient2": "", //请求的时候使用这个useclient2就可以
         },
       },
     },

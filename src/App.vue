@@ -1,32 +1,52 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <Banner />
+
+    <router-view v-if="isRouterAlive" />
   </div>
 </template>
 
-<style lang="scss">
+<script>
+import Banner from "@/components/Banner.vue";
+export default {
+  name: "app",
+  components: {
+    Banner,
+  },
+  data() {
+    return {
+      isRouterAlive: true,
+    };
+  },
+  provide() {
+    return {
+      reload: this.reload,
+    };
+  },
+  methods: {
+    reload() {
+      this.isRouterAlive = false;
+      this.$nextTick(function() {
+        this.isRouterAlive = true;
+      });
+    },
+    saveState() {
+      sessionStorage.setItem("state", JSON.stringify(this.$store.state));
+    },
+  },
+  mounted() {
+    window.addEventListener("unload", this.saveState);
+  },
+};
+</script>
+
+<style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  margin-top: 60px;
 }
 </style>

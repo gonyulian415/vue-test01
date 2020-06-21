@@ -1,5 +1,8 @@
 <template>
   <div>
+    <el-page-header @back="goBack" content="账号管理"></el-page-header>
+    <button @click="addUser">增加用户mutation</button>
+    <button @click="addUser2">增加用户action</button>
     <section class="selectPanel">
       <div>
         渠道:
@@ -49,13 +52,24 @@
       <button @click="submit">确定</button>
     </section>
     <section class="accountList">
-      <ul></ul>
+      <ul>
+        <li>{{userList}}</li>
+      </ul>
     </section>
+    <div class="pageControl">
+      <button @click="reload1">location.reload</button>
+      <button @click="reload2">this.$router.go(0)</button>
+      <button @click="reload3">provide/inject</button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  beforeRouteEnter(to, from, next) {
+    console.log(to);
+    next();
+  },
   data: function() {
     return {
       qudao: [],
@@ -64,11 +78,11 @@ export default {
       formData: {
         qudaos: [],
         tags: [],
-        groups: [],
+        groups: []
       },
       test: {
-        a: 1,
-      },
+        a: 1
+      }
     };
   },
   methods: {
@@ -85,14 +99,41 @@ export default {
       console.log(this.formData);
       console.log(this.formData.qudaos);
     },
+    goBack() {
+      window.history.go(-1);
+    },
+    addUser() {
+      this.$store.commit("addUser", { name: `jay${Math.random()}` });
+    },
+    addUser2() {
+      this.$store.dispatch("useMutationAddUser", {
+        name: `jay${Math.random()}`
+      });
+    },
+    reload1() {
+      location.reload();
+    },
+    reload2() {
+      this.$router.go(0);
+    },
+    reload3() {
+      this.reload();
+    }
   },
+  inject: ["reload"],
   mounted() {
     this.getInitData();
     console.log(this.test);
   },
   created() {
     console.log(this.test);
+    console.log("created is done!!!!!!!!!!!!!!!!!!!");
   },
+  computed: {
+    userList() {
+      return this.$store.state.userList;
+    }
+  }
 };
 </script>
 
