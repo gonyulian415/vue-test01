@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.2e48ca743a69856493c8daf0a850a874.js"
+  "precache-manifest.f7cfbfa4c79072173434dea63feddeff.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "yunrun-firstmission"});
