@@ -49,6 +49,11 @@ const routes = [
         name: "Cors",
         component: () => import("@/components/Test.vue"),
       },
+      {
+        path: "/xbt",
+        name: "Xbt",
+        component: () => import("@/components/Xbt.vue"),
+      },
     ],
   },
   {

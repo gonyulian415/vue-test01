@@ -44,6 +44,28 @@ export default {
         console.log(res);
       });
     }
+  },
+  mounted() {
+    setInterval(function() {
+      console.log(this.message);
+    }, 500);
+
+    setInterval(() => {
+      console.log(this.message);
+    }, 500);
+
+    setInterval(
+      _this => {
+        console.log(_this.message);
+      },
+      500,
+      this
+    );
+
+    let that = this;
+    setInterval(() => {
+      console.log(that.message);
+    }, 500);
   }
 };
 </script>
