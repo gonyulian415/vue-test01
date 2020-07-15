@@ -60,6 +60,16 @@ const routes = [
         name: "Xbt",
         component: () => import("@/components/Xbt.vue"),
       },
+      {
+        path: "/TestPdf",
+        name: "TestPdf",
+        component: () => import("@/components/TestPdf.vue"),
+      },
+      {
+        path: "/TestPdf2",
+        name: "TestPdf2",
+        component: () => import("@/components/TestPdf2.vue"),
+      },
     ],
   },
   {
