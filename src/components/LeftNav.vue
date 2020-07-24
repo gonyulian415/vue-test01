@@ -17,6 +17,7 @@
             <el-menu-item index="/cors">跨域测试</el-menu-item>
             <el-menu-item index="/TestPdf">vue-pdf</el-menu-item>
             <el-menu-item index="/TestPdf2">pdfjs</el-menu-item>
+            <el-menu-item index="/GrammerTest">语法测试</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="分组2">
             <el-menu-item index="/xbt">小编体</el-menu-item>

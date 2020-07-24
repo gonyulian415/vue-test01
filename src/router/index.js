@@ -70,6 +70,11 @@ const routes = [
         name: "TestPdf2",
         component: () => import("@/components/TestPdf2.vue"),
       },
+      {
+        path: "/GrammerTest",
+        name: "GrammerTest",
+        component: () => import("@/components/GrammerTest.vue"),
+      },
     ],
   },
   {
