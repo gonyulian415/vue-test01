@@ -9,7 +9,11 @@ import _ from "lodash";
 import qs from "qs";
 import "./plugins/element.js";
 import VueParticles from 'vue-particles'
+import * as filters from './filters/index'
 
+Object.keys(filters).forEach(key => {
+    Vue.filter(key, filters[key])
+})
 
 Vue.config.productionTip = false;
 //axios.defaults.baseURL = "http://mockjs.com/api"; // 设置默认请求的url
