@@ -14,6 +14,7 @@ export default {
   data: function() {
     return {
       message: "未更新"
+      //加上注释
     };
   },
   methods: {
